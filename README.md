@@ -17,8 +17,12 @@ Crear entorno virtual de python:
 ```
 python3 -m venv venv
 ```
+* Windows con versiones de python menores a 3.10. Luego de descargar la version hago
 
-El segundo *venv* es el nombre del entorno (Se puede poner otro nombre).
+```
+ "C:\Users\Joaquin\AppData\Local\Programs\Python\Python310\python.exe" -m venv 
+ ```
+Es la ubicacion segun donde se haya guardado la version.
 
 **Paso 2.**
 
@@ -28,6 +32,13 @@ Activar entorno virtual.
 ```
 source venv/bin/activate
 ```
+source .venv/Scripts/activate
+
+* Windows
+```
+source .venv/Scripts/activate
+```
+
 
 **Paso 3.**
 
@@ -48,7 +59,6 @@ Dentro del entorno, levantar el archivo requirements.txt que contiene las depend
 ```
 pip install -r requirements.txt
 ```
-
 
 ## *Comandos utiles*
 
