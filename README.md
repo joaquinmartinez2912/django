@@ -5,6 +5,8 @@ Trabajo de clases - Django 2024.
 
 - [Comandos Utiles](#comandos-utiles)
 
+- [ORM](#orm)
+
 
 ## *Entorno Virtual e Inicio Local*
 ***
@@ -123,6 +125,8 @@ Despues de esto, para que se vea tengo que hacer:
 python3 manage.py migrate
 ```
 
+## *ORM*
+
  **Abri Shell (Consola)**
 
 ```
@@ -147,6 +151,16 @@ PARA OBTENER UN LISTADO DE PRODCUTOS
 NombreModelo.objects.all()
 Product
 ```
+
+NUEVO PRODUCTO
+```
+ nuevo_producto = Product.objects.create(
+   ...: name="microfono",
+   ...: description="Con condensador",
+   ...: price=float(15000),
+   ...: )
+```
+
 PARA SELECCIONAR UNO:
 ```
 NombreModelo.objects.first()
@@ -173,4 +187,35 @@ producto_2.save()
 PARA BORRARLO
 ```
 producto_2.delete
+```
+
+PARA CONTARLOS
+```
+producto.count()
+```
+PARA FILTRAR POR ATRIBUTO 1:
+```
+filtro_por_attr_1 = modelo.objects.filter(attr_1="valor")
+```
+Devuelve un queryset que no admite una consulto por atributo ya que el filter trae una lista y 
+no un objeto determinado. El get lo usamos cuando sabemos que el elemento en particular existe.
+
+PARA AGREGAR MAS DE UN FILTRO:
+```
+producto_por_id = products.objects.filter(id=1,price=float(30000))
+```
+PARA ORDENAR:
+```
+Product.objects.all().order_by("price")
+```
+
+EXCLUIR ELEMENTOS:
+```
+Modelo.objects.exclude(attr_2="value")
+```
+
+GUARDAR ULTIMA SALIDA:
+
+```
+productos = _
 ```
