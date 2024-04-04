@@ -128,7 +128,6 @@ python3 manage.py migrate
 ## *ORM*
 
  **Abri Shell (Consola)**
-
 ```
 python3 manage.py shell
 ```
@@ -140,19 +139,19 @@ pip install ipython
 ```
 Una vez instalada se abre con el comando anterior, sola que sino la instalas te tira la predeterminada.
 
-DENTRO DE LA SHELL:
-PARA TRAER LA BASE
+### DENTRO DE LA SHELL:  
+
+**PARA TRAER LA BASE**
 ```
 from productos.models import Product
 ```
 
-PARA OBTENER UN LISTADO DE PRODCUTOS
+**PARA OBTENER UN LISTADO DE PRODCUTOS**
 ```
 NombreModelo.objects.all()
 Product
 ```
-
-NUEVO PRODUCTO
+**NUEVO PRODUCTO**
 ```
  nuevo_producto = Product.objects.create(
    ...: name="microfono",
@@ -161,22 +160,22 @@ NUEVO PRODUCTO
    ...: )
 ```
 
-PARA SELECCIONAR UNO:
+**PARA SELECCIONAR UNO:**
 ```
 NombreModelo.objects.first()
 Product
 ```
 
-PARA ACCEDER A LO ULTIMO QUE VI:
+**PARA ACCEDER A LO ULTIMO QUE VI:**
 ```
 producto_2=_
 ```
 
-PARA ACCEDER A UN ATRIBUTO:
+**PARA ACCEDER A UN ATRIBUTO:**
 ```
 producto_2.name
 ```
-PARA MODIFICAR
+**PARA MODIFICAR**
 ```
 producto_2.name = (nuevo nombre)_
 ```
@@ -184,38 +183,103 @@ para que actualice hay que hacer:
 ```
 producto_2.save()
 ```
-PARA BORRARLO
+**PARA BORRARLO**
 ```
 producto_2.delete
 ```
 
-PARA CONTARLOS
-```
-producto.count()
-```
-PARA FILTRAR POR ATRIBUTO 1:
+**PARA FILTRAR POR ATRIBUTO 1:**
 ```
 filtro_por_attr_1 = modelo.objects.filter(attr_1="valor")
 ```
 Devuelve un queryset que no admite una consulto por atributo ya que el filter trae una lista y 
 no un objeto determinado. El get lo usamos cuando sabemos que el elemento en particular existe.
 
-PARA AGREGAR MAS DE UN FILTRO:
+**PARA AGREGAR MAS DE UN FILTRO:**
 ```
 producto_por_id = products.objects.filter(id=1,price=float(30000))
 ```
-PARA ORDENAR:
+**PARA ORDENAR:**
 ```
 Product.objects.all().order_by("price")
 ```
 
-EXCLUIR ELEMENTOS:
+**EXCLUIR ELEMENTOS:**
 ```
 Modelo.objects.exclude(attr_2="value")
 ```
 
-GUARDAR ULTIMA SALIDA:
-
+**GUARDAR ULTIMA SALIDA:**
 ```
 productos = _
+```
+
+**CONSULTAR TODOS LOS REGISTROS**
+```
+modelo = Modelo.objects.all()
+```
+
+**ACCEDER AL PRIMER ELEMENTO**
+```
+modelo = Modelo.objects.first()
+```
+
+**ACCEDER AL ULTIMO ELEMENTO**
+```
+modelo = Modelo.objects.last()
+```
+
+**CONTAR CANTIDAD DE ELEMENTOS DE UN QUERYSET**
+```
+cantidad_de_elementos = len(modelo)
+```
+
+**CONTAR ELEMENTOS**
+```
+cantidad_de_elementos = Modelo.objects.count()
+```
+
+**ORDENERLOS**
+```
+Modelo.objects.all().order_by('attr')
+```
+
+**EXCLUIR ELEMENTOS**
+```
+Modelo.objects.exclude('attr_2'='value')
+```
+
+**LOOKUP IXECT/EXCT**
+```
+Modelo.objects.filter(attr_1__iexact='Value') # No distingue mayusculas o minisculas
+```
+```
+Modelo.objects.filter(attr_1__exact='Value') # Distingue mayusculas y minusculas
+```
+**MAYOR Y MENOR**
+```
+Modelo.objects.filter(attr_1__gt=50)
+```
+```
+Modelo.objects.filter(attr_1__lt=50)
+```
+
+**IN LISTA**
+```
+Modelo.objects.filter(attr_2__in=['value', 'value'])
+```
+
+**COMIENZO DE VALOR DE ATRIBUTO**
+```
+Modelo.objects.filter(attr__startswith='Va')
+```
+
+**FINAL DE ATRIBUTO**
+```
+Modelo.objects.filter(attr__endswith='Va')
+```
+
+**FILTRADO POR RANGO**
+```
+Modelo.objects.filter(attr_1__range=(valor2, valor2)
 ```
