@@ -17,7 +17,6 @@ class Product(models.Model):
         on_delete = models.SET_NULL,
         related_name="products",
         null=True, blank=True
-
     )
     #created = models.DateTimeField(auto_now_add=True)
     #modified = models.DateTimeField(auto_now=True)

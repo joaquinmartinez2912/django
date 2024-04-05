@@ -283,3 +283,27 @@ Modelo.objects.filter(attr__endswith='Va')
 ```
 Modelo.objects.filter(attr_1__range=(valor2, valor2)
 ```
+
+**For para crear objetos en shell*
+
+creo una lista con nombres y una con adjtivos e importo "radmon" y luego:
+
+```
+from productos.models import Category, Product
+
+nombres = ["mouse","teclado","notebook","impresora","teclas","router","m
+   odem", "procesador","placa madre","cooler","transformador","scanner","mu
+   ltifuncion"]
+
+adj = ["mod18","mod19","mod20","mod21","mod22","mod23","mod24"]
+
+import random
+
+for i in range (15):
+     nuevo_producto = Product.objects.create(
+     name = f"{random.choice(nombres)} {random.choice(adj)}",
+     description = "",
+     price = random.randint(10000,80000),
+     category = Category.objects.first(),
+     )
+```
