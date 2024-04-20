@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 
 # Create your models here.
@@ -24,6 +25,10 @@ class Product(models.Model):
         related_name="products",
         null=True, blank=True
     )
+    stock = models.IntegerField(
+        default=0
+    )
+
     #created = models.DateTimeField(auto_now_add=True)
     #modified = models.DateTimeField(auto_now=True)
 
@@ -34,6 +39,13 @@ class Product(models.Model):
     def __str__(self) -> str:
         return self.name
     
+    @admin.display(description="Rango de precio")
+    def rango_precios(self):
+        if self.price > 40000:
+            return "Alto"
+        if 20000 < self.price < 400000:
+            return "Medio"
+        return "Bajo"
     
     # def save(self, *args, **kwargs):
     #     if self.price>0:

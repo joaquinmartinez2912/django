@@ -307,3 +307,22 @@ for i in range (15):
      category = Category.objects.first(),
      )
 ```
+
+Comando para que se reinicie la Shell cuando hay un cambio. Se debe hacer primero que todo.
+```
+%load_ext autoreload
+
+%autoreload 2
+```
+
+In [4]: from productos.repositories.product_repositorie import ProductRepository
+   ...: 
+
+In [5]: repository = ProductRepository()
+
+In [6]: repository.get_all()
+Out[6]: <QuerySet [<Product: microfono>, <Product: Monitor>, <Product: notebook>, <Product: scanner>, <Product: modem>, <Product: modem>, <Product: multifuncion mod19>, <Product: procesador mod24>, <Product: modem mod18>, <Product: scanner mod20>, <Product: impresora mod20>, <Product: router mod18>, <Product: teclas mod21>, <Product: scanner mod24>, <Product: router mod23>, <Product: teclado mod19>, <Product: procesador mod24>, <Product: scanner mod24>, <Product: multifuncion mod24>, <Product: impresora mod19>, '...(remaining elements truncated)...']>
+
+```
+nuevo_producto = repository.create("casco","casquito",6000,70)
+```
