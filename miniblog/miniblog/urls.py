@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("core.urls")), # El include hace que cada vez que agrego en core me entre aca.
-    path("",include("productos.urls"))
+    path("products/",include("productos.urls"))
 ]
