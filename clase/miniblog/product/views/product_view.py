@@ -34,6 +34,7 @@ def product_delete(request, id):
 
 def product_update(request, id):
     product = repo.get_by_id(id=id)
+    print(product.name)
     categorias = Category.objects.all()
     if request.method == "POST":
         product = repo.get_by_id(id=id) # Como sabe que el id es el de la URL?
