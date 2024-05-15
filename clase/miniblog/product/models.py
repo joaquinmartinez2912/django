@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.db import models
-
+# Siempre que se agrega un modelo o modifica, recordar hacer la migracion.
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
