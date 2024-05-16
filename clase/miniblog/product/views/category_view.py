@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from product.repositories.category import CategoryRepository
 repo_cat = CategoryRepository()
 
+from product.repositories.product import ProductRepository
+repo_prod = ProductRepository()
+
 def category_list(request):
     category_repository = CategoryRepository()
     categorias = category_repository.get_all()
@@ -16,10 +19,14 @@ def category_list(request):
 
 def category_detail(request, id):
     categoria = repo_cat.get_by_id(id=id)
+    productos = repo_prod.filter_by_category(categoria)
     return render(
         request,
         'categories/detail.html',
-        {"category":categoria}
+        dict(
+            category = categoria,
+            products = productos
+        )
     )
 
 def category_update(request, id):
@@ -45,8 +52,6 @@ def category_update(request, id):
         )
        
     )
-
-
 
 def category_delete(request, id):
     categoria = repo_cat.get_by_id(id=id) # No conviene hacer el .delete aca

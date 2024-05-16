@@ -22,7 +22,7 @@ class Product(models.Model):
     )
     category = models.ForeignKey(
         Category,
-        on_delete=models.SET_NULL,
+        on_delete=models.SET_NULL, # Si estuviera en cascada, al borrar la categoria borraria todos los productos
         related_name='products',
         null=True,
     )
