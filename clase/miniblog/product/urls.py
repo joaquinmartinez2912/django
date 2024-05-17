@@ -16,6 +16,11 @@ from product.views.category_view import (
     category_detail,
     )
 
+from product.views.supplier_view import (
+    supplier_list,
+    suplier_create,
+)
+
 urlpatterns = [
     path(route='', view=product_list, name='product_list'),
     path(route='create/',view=product_create, name='product_create'),
@@ -27,5 +32,7 @@ urlpatterns = [
     path(route='category/create',view=category_create, name='category_create'),
     path(route='category/<int:id>/update/',view=category_update,name="category_update"),
     path(route='category/<int:id>/detail/',view=category_detail,name="category_detail"),
+    path(route='supplier',view=supplier_list,name="supplier_list"),
+    path(route='supplier/create',view=suplier_create, name='suplier_create'),
 ]
 
