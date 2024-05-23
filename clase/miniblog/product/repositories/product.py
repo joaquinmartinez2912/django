@@ -6,7 +6,6 @@ from product.models import Category, Product
 
 #logger = logging.getLogger(__name__)
 
-
 class ProductRepository:
 
     def get_all(self) -> List[Product]:

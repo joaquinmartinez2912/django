@@ -1,5 +1,6 @@
 # Las vistas ejecutan un metodo que redireeciona a un template cuando se llama a una URL. 
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 from product.models import Category
 
@@ -8,6 +9,7 @@ from product.repositories.category import CategoryRepository
 
 repo = ProductRepository()
 repo_cat = CategoryRepository()
+
 
 def product_list(request):
     productos = repo.get_all()
@@ -32,6 +34,7 @@ def product_delete(request, id):
     repo.delete(producto=producto)
     return redirect('product_list') # USamos el redirect para que nos lleve a la URL que en este caso es la misma
 
+@login_required(login_url="login")
 def product_update(request, id):
     product = repo.get_by_id(id=id)
     print(product.name)
