@@ -1,3 +1,4 @@
+
 from django.contrib.auth import (
     login,
     logout,
@@ -16,7 +17,7 @@ class LoginView(View):
             "home/login.html"
         )
     
-    def post(seld, request):
+    def post(self, request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         if username and password:

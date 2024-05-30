@@ -1,0 +1,23 @@
+{% extends "home/base.html" %}
+{% block content %}
+<div class="container mt-3">
+    <h2>Actualizar Producto</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="name" class="form-control" value="{{ suplier.name }}" required>
+        </div>
+        <div class="form-group">
+            <label>Direccion</label>
+            <input type="text" name="address" class="form-control" value="{{ suplier.address }}" required>
+        </div>
+        <div class="form-group">
+            <label>Telefono</label>
+            <input  name="phone" class="form-control" value="{{ suplier.phone}}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+</div>
+{% endblock %}

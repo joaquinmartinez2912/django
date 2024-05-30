@@ -19,6 +19,9 @@ from product.views.category_view import (
 from product.views.supplier_view import (
     supplier_list,
     suplier_create,
+    suplier_delete,
+    suplier_update,
+    suplier_detail,
 )
 
 from product.views.product_review_view import (
@@ -39,6 +42,9 @@ urlpatterns = [
     path(route='category/<int:id>/detail/',view=category_detail,name="category_detail"),
     path(route='supplier',view=supplier_list,name="supplier_list"),
     path(route='supplier/create',view=suplier_create, name='suplier_create'),
+    path(route='supplier/<int:id>/delete/',view=suplier_delete, name='suplier_delete'),
+    path(route='supplier/<int:id>/update/',view=suplier_update, name='suplier_update'),
+    path(route='supplier/<int:id>/detail/',view=suplier_detail, name='suplier_detail'),
     path(route='product_reviews/',view=ProductReviewView.as_view(),name="product_reviews"),
     path(
         route='product_reviews/create',

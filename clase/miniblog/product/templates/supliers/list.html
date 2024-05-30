@@ -18,9 +18,9 @@
                 <td>{{ suplier.name }}</td>
 
                 <td>
-                    <a href="" class="btn btn-info btn-sm">Detalles</a>
-                    <a href="" class="btn btn-success btn-sm">Editar</a>
-                    <a href="" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a href="{% url 'suplier_detail' suplier.id %}" class="btn btn-info btn-sm">Detalles</a>
+                    <a href="{% url 'suplier_update' suplier.id %}" class="btn btn-success btn-sm">Editar</a>
+                    <a href="{% url 'suplier_delete' suplier.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}

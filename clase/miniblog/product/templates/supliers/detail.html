@@ -1,0 +1,16 @@
+{% extends "home/base.html" %}
+{% block content %}
+<div class="container mt-3">
+    <h2>Detalles de Proveedor</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ suplier.name }}</h5>
+            <p class="card-text"><strong>Direccion:</strong> {{ suplier.address }}</p>
+            <p class="card-text"><strong>Telefono:</strong> {{ suplier.phone}}</p>
+            <a href="{% url 'suplier_update' suplier.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'suplier_delete' suplier.id%}"class="btn btn-danger">Borrar</a>
+            <a href="{% url 'supplier_list' %}" class="btn btn-secondary">Volver a la lista</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
