@@ -65,6 +65,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "miniblog.context_processors.contexts_processors_dolar.dolar_exchange_rates",
+                "miniblog.context_processors.contexts_processors.all_names_product",
+                "miniblog.context_processors.contexts_processors.all_names_category",
             ],
         },
     },
@@ -120,7 +123,15 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+import os
+
+MEDIA_URL= '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+

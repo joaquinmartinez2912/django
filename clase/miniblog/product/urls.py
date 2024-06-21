@@ -27,6 +27,12 @@ from product.views.supplier_view import (
 from product.views.product_review_view import (
     ProductReviewView,
     ProductReviewCreateView,
+    ProductREviewDetailView,
+    ProductREviewUpdateView,
+)
+
+from product.views.product_image_view import (
+    ProductImageView
 )
 
 urlpatterns = [
@@ -50,5 +56,17 @@ urlpatterns = [
         route='product_reviews/create',
         view=ProductReviewCreateView.as_view(),
         name="product_reviews_create"),
+    path(
+        route='product_reviews/<int:id>',
+        view=ProductREviewDetailView.as_view(),
+        name="product_reviews_detail"),
+    path(
+        route='product_reviews/<int:id>/update',
+        view=ProductREviewUpdateView.as_view(),
+        name="product_reviews_update"),
+    path(route='product_images/',
+         view=ProductImageView.as_view(),
+         name="product_images"),
 ]
+
 
