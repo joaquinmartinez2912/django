@@ -62,6 +62,11 @@ Dentro del entorno, levantar el archivo requirements.txt que contiene las depend
 pip install -r requirements.txt
 ```
 
+Para actualizar dependecias
+```
+pip freeze>requirements.txt
+```
+
 ## *Comandos utiles*
 
 **Crear un proyecto nuevo**
