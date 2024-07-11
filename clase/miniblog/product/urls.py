@@ -36,11 +36,11 @@ from product.views.product_image_view import (
 )
 
 urlpatterns = [
-    path(route='', view=product_list, name='product_list'),
-    path(route='create/',view=product_create, name='product_create'),
-    path(route='<int:id>/',view=product_detail,name="product_detail"),
-    path(route='<int:id>/update/',view=product_update,name="product_update"),
-    path(route='<int:id>/delete/',view=product_delete,name="product_delete"),
+    path(route='', view=product_list.as_view(), name='product_list'),
+    path(route='create/',view=product_create.as_view(), name='product_create'),
+    path(route='<int:id>/',view=product_detail.as_view(),name="product_detail"),
+    path(route='<int:id>/update/',view=product_update.as_view(),name="product_update"),
+    path(route='<int:id>/delete/',view=product_delete.as_view(),name="product_delete"),
     path(route='category',view=category_list,name="category_list"),
     path(route='category/<int:id>/delete/',view=category_delete,name="category_delete"),
     path(route='category/create',view=category_create, name='category_create'),

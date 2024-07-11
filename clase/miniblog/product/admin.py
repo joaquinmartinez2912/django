@@ -44,7 +44,6 @@ class ProductAdmin(admin.ModelAdmin):
         )
     ]
 
-
     def valor_total(self, obj):
         return obj.stock * obj.price
     

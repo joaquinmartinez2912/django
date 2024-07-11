@@ -28,6 +28,7 @@ class ProductForm(forms.ModelForm):
                                     "style": "color:red"}
                                     ),
         }
+    
 
 class ProductReviewForm(forms.ModelForm):
     class Meta:

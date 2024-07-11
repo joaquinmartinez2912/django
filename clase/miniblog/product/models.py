@@ -8,7 +8,6 @@ class Category(models.Model):
     
     def __str__(self):
         return  self.name
-
 # Create your models here.
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -39,7 +38,6 @@ class Product(models.Model):
             return "MEDIO"
         return "BAJO"
 
-
 class Supplier(models.Model):
     name = models.CharField(max_length=200)
     address = models.TextField()
@@ -47,7 +45,6 @@ class Supplier(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class ProductReview(models.Model):
     product = models.ForeignKey(
@@ -63,7 +60,6 @@ class ProductReview(models.Model):
     def __str__(self):
         return f'Review by {self.author.username} for {self.product.name}'
     
-
 class PriceHistory(models.Model):
     product = models.ForeignKey(
         Product, 
@@ -76,7 +72,6 @@ class PriceHistory(models.Model):
     def __str__(self):
         return f'{self.product.name} - {self.price} on {self.date}'
 
-
 class ProductImage(models.Model):
     product = models.ForeignKey(
         Product,
@@ -88,5 +83,3 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return self.description or f'Image of {self.product.name}'
-
-

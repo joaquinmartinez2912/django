@@ -4,7 +4,8 @@
     <h2>Actualizar Producto</h2>
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
+        {{form.as_p}}
+        <!-- <div class="form-group">
             <label>Nombre</label>
             <input type="text" name="name" class="form-control" value="{{ product.name }}" required>
         </div>
@@ -19,9 +20,9 @@
         <div class="form-group">
             <label>Categoría</label>
             <select name="id_category" class="form-control">
-                <!-- <option value="{{category.id}} {% if category.id == product.category.id %} selectd" {% endif %}>
-                    Selecciona una categoría
-                </option> -->
+                                                        <option value="{{category.id}} {% if category.id == product.category.id %} selectd" {% endif %}>
+                                                            Selecciona una categoría
+                                                        </option>
                 {% for category in categories %}
                     <option value="{{ category.id }}">{{ category.name }}</option>
                 {% endfor %}
@@ -30,7 +31,7 @@
         <div class="form-group">
             <label>Stock</label>
             <input type="number" name="stock" class="form-control" value="{{ product.stock }}">
-        </div>
+        </div> -->
         <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>
 </div>
