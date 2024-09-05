@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import models
 # Siempre que se agrega un modelo o modifica, recordar hacer la migracion.
 
+from product.managers import ProductQuerySet
+
 class Category(models.Model):
     name = models.CharField(max_length=200)
     
@@ -27,6 +29,7 @@ class Product(models.Model):
     )
     stock = models.IntegerField(default=0)
 
+    objects = ProductQuerySet.as_manager()
     def __str__(self):
         return  self.name
 

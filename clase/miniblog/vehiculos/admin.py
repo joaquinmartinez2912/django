@@ -9,7 +9,7 @@ class MarcaAdmin(admin.ModelAdmin):
         'nombre',
     )
 
-@admin.register(Marca)
+@admin.register(Vehiculos)
 class VehiculoAdmin(admin.ModelAdmin):
         list_display = (
         'marca', 'modelo',
