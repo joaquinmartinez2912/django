@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
 ]
 
 SELF_APPS = [
@@ -48,6 +49,7 @@ SELF_APPS = [
 
 EXTERNAL_APPS = [
     "rest_framework",
+    'django_filters',
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + SELF_APPS + EXTERNAL_APPS
@@ -75,7 +77,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "miniblog.context_processors.contexts_processors_dolar.dolar_exchange_rates",
+                # "miniblog.context_processors.contexts_processors_dolar.dolar_exchange_rates",
                 "miniblog.context_processors.contexts_processors.all_names_product",
                 "miniblog.context_processors.contexts_processors.all_names_category",
             ],
@@ -144,4 +146,8 @@ import os
 MEDIA_URL= '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
-
+REST_FRAMEWORK = {
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'api_v1.paginations.MiPaginador',
+    'PAGE_SIZE': 100
+}
